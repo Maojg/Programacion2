@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Monstruos</title>
-    </head>
-    <body>
-        <h1>Monstruos💦🔥🪨</h1>
-        <section id="seleccionar-monstruo">
-            <h2>Elige tu monstruo:</h2>
 
-            Monstruos
-            <button>seleccionar</button>
-        
+<head>
+    <meta charset="utf-8" />
+    <title>Monstruos</title>
+</head>
 
-        <section id="seleccionar-ataque"></section>
+<body>
+    <h1>Monstruos💦🔥🪨</h1>
+
+    <section id="seleccionar-monstruo">
+        <h2>Elige tu monstruo:</h2>
+
+        <label for="gaiagua">Gaiagua</label>
+        <input type="radio" name="monstruo" id="gaiagua"/>
+
+        <label for="peligarroso">Peligarroso</label>
+        <input type="radio" name="monstruo" id="peligarroso"/>
+
+        <label for="phairus">Phairus</label>
+        <input type="radio" name="monstruo" id="phairus"/>
+
+        <button id="boton-monstruo">seleccionar</button>
+    </section>
+
+    <section id=" seleccionar-ataque">
         <h2>Elige tu ataque:</h2>
 
         <p>Tu Monstruo tiene <span>3</span> vidas</p>
-        <p>La Monstruo del enemigo tiene <span>3</span> vidas</p>
+        <p>El Monstruo del enemigo tiene <span>3</span> vidas</p>
         <p>
-            <button>Fuego 🔥🔥</button>
-            <button>Agua 💦💦</button>
-            <button>Tierra 🪨🪨</button>
+            <button id="boton-fuego">Fuego 🔥🔥</button>
+            <button id="boton-agua">Agua 💦💦</button>
+            <button id="boton-tierra">Tierra 🪨🪨</button>
         </p>
     </section>
     <section id="mensajes"></section>
-    <p>tu mascota ataco con Fuego, la mascota del enemigo ataco con tierra. Ganaste</p>
-    </body>
+    <p>tu Monstruo ataco con Fuego, a el monstruo del enemigo ataco con tierra. Ganaste</p>
+    <section id="Reiniciar">
+        <button id="boton-reiniciar">Reiniciar</button>
+    </section>
+    <script src="./js/Monstruos.js"></script>
+</body>
+
 </html>
