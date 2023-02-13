@@ -7,9 +7,9 @@ function iniciarJuego() {
 
     let botonFuego = document.getElementById('boton-fuego')
     botonFuego.addEventListener('click', ataqueFuego)
-    let BotonAgua =  document.getElementById('boton-agua')
+    let botonAgua =  document.getElementById('boton-agua')
     botonAgua.addEventListener('click', ataqueAgua)
-    let BotonTierra = document.getElementById('boton-tierra')
+    let botonTierra = document.getElementById('boton-tierra')
     botonTierra.addEventListener('click', ataqueTierra)
 }
 
@@ -67,7 +67,26 @@ function ataqueAleatorioEnemigo(){
     }else {
         ataqueEnemigo ='Tierra'
     }
-    
+    combate()
+}
+
+function combate() {
+    if (ataqueEnemigo == ataqueJugador) {
+        alert("EMPATE")     
+    } else if(ataqueJugador == 1 & ataqueEnemigo == 3) {
+        alert("GANASTE")
+        
+    }
+}
+
+function crearMensaje() {
+
+    let sectionMensajes = document.getElementById('mensajes')
+
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML='tu Monstruo ataco con' + ataqueJugador + ', el monstruo del enemigo ataco con '+ ataqueEnemigo +'. Ganaste'
+
+    sectionMensajes.appendChild(parrafo)
 }
 
 
