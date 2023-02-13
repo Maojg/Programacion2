@@ -72,35 +72,35 @@ function ataqueAleatorioEnemigo(){
 
 function combate() {
     if (ataqueEnemigo == ataqueJugador) {
-        alert("EMPATE")     
-    } else if(ataqueJugador == 1 & ataqueEnemigo == 2) {
-        alert("GANASTE")
-    } else if(ataqueJugador == 1 && ataqueEnemigo == 3) {
-        alert("PERDISTE")
-    } else if (ataqueJugador == 2 && ataqueEnemigo == 1) {
-        alert ("PERDISTE")
-    } else if(ataqueJugador == 2 && ataqueEnemigo == 3) {
-        alert("GANASTE")
-    } else if(ataqueJugador == 3 && ataqueEnemigo == 1) {
-        alert("GANASTE")
-    }else if(ataqueJugador == 3 && ataqueEnemigo == 1) {
-        alert("PERDISTE")
+        crearMensaje("EMPATE")     
+    } else if(ataqueJugador == 'FUEGO' & ataqueEnemigo == 'AGUA') {
+        crearMensaje("GANASTE")
+    } else if(ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA') {
+        crearMensaje("PERDISTE")
+    } else if (ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
+        crearMensaje ("PERDISTE")
+    } else if(ataqueJugador == 'AGUA' && ataqueEnemigo == 'TIERRA') {
+        crearMensaje("GANASTE")
+    } else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'FUEGO') {
+        crearMensaje("GANASTE")
+    }else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
+        crearMensaje("PERDISTE")
     }
 }
 
-function crearMensaje() {
+function crearMensaje(resultado) {
 
     let sectionMensajes = document.getElementById('mensajes')
 
     let parrafo = document.createElement('p')
-    parrafo.innerHTML='tu Monstruo ataco con' + ataqueJugador + ', el monstruo del enemigo ataco con '+ ataqueEnemigo +'. Ganaste'
+    parrafo.innerHTML='tu Monstruo ataco con' + ataqueJugador + ', el monstruo del enemigo ataco con '+ ataqueEnemigo + resultado
 
     sectionMensajes.appendChild(parrafo)
 }
 
 
 function aleatorio(min,max) {
-    return Math.floor(Math.random() * (max -min +1) +min)
+    return Math.floor(Math.random() * (max -min +'FUEGO') +min)
 }
 
 window.addEventListener('load', iniciarJuego)
