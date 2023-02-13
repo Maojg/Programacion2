@@ -73,9 +73,18 @@ function ataqueAleatorioEnemigo(){
 function combate() {
     if (ataqueEnemigo == ataqueJugador) {
         alert("EMPATE")     
-    } else if(ataqueJugador == 1 & ataqueEnemigo == 3) {
+    } else if(ataqueJugador == 1 & ataqueEnemigo == 2) {
         alert("GANASTE")
-        
+    } else if(ataqueJugador == 1 && ataqueEnemigo == 3) {
+        alert("PERDISTE")
+    } else if (ataqueJugador == 2 && ataqueEnemigo == 1) {
+        alert ("PERDISTE")
+    } else if(ataqueJugador == 2 && ataqueEnemigo == 3) {
+        alert("GANASTE")
+    } else if(ataqueJugador == 3 && ataqueEnemigo == 1) {
+        alert("GANASTE")
+    }else if(ataqueJugador == 3 && ataqueEnemigo == 1) {
+        alert("PERDISTE")
     }
 }
 
