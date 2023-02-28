@@ -1,5 +1,7 @@
 let ataqueJugador
 let ataqueEnemigo
+let vidasJugador = 3
+let vidasEnemigo = 3
 
 function iniciarJuego() {
     let botonMonstruoJugador = document.getElementById('boton-monstruo')
@@ -71,20 +73,27 @@ function ataqueAleatorioEnemigo(){
 }
 
 function combate() {
-    if (ataqueEnemigo == ataqueJugador) {
-        crearMensaje("EMPATE")     
-    } else if(ataqueJugador == 'FUEGO' & ataqueEnemigo == 'AGUA') {
-        crearMensaje("GANASTE")
+let spamVidasJugador= document.getElementById('vidas-jugador')
+let spamVidasEnemigo= document.getElementById('vidas-enemigo')
+
+    if(ataqueEnemigo == ataqueJugador) {
+        crearMensaje("EMPATE")
     } else if(ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA') {
-        crearMensaje("PERDISTE")
-    } else if (ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
-        crearMensaje ("PERDISTE")
-    } else if(ataqueJugador == 'AGUA' && ataqueEnemigo == 'TIERRA') {
         crearMensaje("GANASTE")
-    } else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'FUEGO') {
+        vidasEnemigo--
+        spamVidasEnemigo.innerHTML = vidasEnemigo
+    } else if(ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
         crearMensaje("GANASTE")
-    }else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
+        vidasEnemigo--
+        spamVidasEnemigo.innerHTML = vidasEnemigo
+    } else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
+        crearMensaje("GANASTE")
+        vidasEnemigo--
+        spamVidasEnemigo.innerHTML = vidasEnemigo
+    } else {
         crearMensaje("PERDISTE")
+        vidasJugador --
+        spamVidasJugador.innerHTML = "vidasJugador"
     }
 }
 
@@ -93,7 +102,7 @@ function crearMensaje(resultado) {
     let sectionMensajes = document.getElementById('mensajes')
 
     let parrafo = document.createElement('p')
-    parrafo.innerHTML='tu Monstruo ataco con' + ataqueJugador + ', el monstruo del enemigo ataco con '+ ataqueEnemigo + resultado
+    parrafo.innerHTML='tu Monstruo ataco con' + ataqueJugador + ', el monstruo del enemigo ataco con '+ ataqueEnemigo +' '+ resultado
 
     sectionMensajes.appendChild(parrafo)
 }
