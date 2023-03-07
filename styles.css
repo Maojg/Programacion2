@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gothic&family=Poppins:wght@300&display=swap');
+
+
+.body {
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-family: 'Poppins', sans-serif;
+    
+    background-image: url("https://images4.alphacoders.com/115/1153100.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+}
+
+
+#seleccionar-monstruo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    color: red;
+    font-size: 48px;
+}
+
+.subtitulo .tarjetas {
+    font-size: 28px;
+    color: grey;
+    display: flex;
+    gap: 10px;
+}
+
+.tarjeta-de-monstruos {
+    width: 180px;
+    height: 100px;
+    background: transparent;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.tarjeta-de-monstruos img{
+width: 80px;
+}
+
+input {
+    display: none;
+}

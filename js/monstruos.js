@@ -4,6 +4,12 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 
 function iniciarJuego() {
+    sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display='none'
+
+    sectionReiniciar = document.getElementById('Reiniciar')
+    sectionReiniciar.style.display='none'
+
     let botonMonstruoJugador = document.getElementById('boton-monstruo')
     botonMonstruoJugador.addEventListener('click', seleccionarMonstruoJugador)
     let botonFuego = document.getElementById('boton-fuego')
@@ -18,6 +24,10 @@ function iniciarJuego() {
 }
 
 function seleccionarMonstruoJugador() {
+    sectionSeleccionarMounstruo = document.getElementById('seleccionar-monstruo')
+    sectionSeleccionarMounstruo.style.display='none'
+    sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display='block'
     let inputLeviathan = document.getElementById('leviathan')
     let inputPeligarroso = document.getElementById('peligarroso')
     let inputPhairus = document.getElementById('phairus')
@@ -125,6 +135,10 @@ function crearMensajeFinal(resultadoFinal) {
     botonAgua.disabled = true
     let botonTierra = document.getElementById('boton-tierra')
     botonTierra.disabled = true
+
+    sectionReiniciar = document.getElementById('Reiniciar')
+    sectionReiniciar.style.display='Block'
+
 }
 
 function aleatorio(min, max) {
@@ -132,6 +146,7 @@ function aleatorio(min, max) {
 }
 function reinicarJuego(){
     location.reload()
+
 }
 
 window.addEventListener('load', iniciarJuego)
