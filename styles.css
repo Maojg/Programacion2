@@ -21,13 +21,17 @@
 }
 
 .titulo {
-    color: red;
+    color: rgb(68, 31, 31);
     font-size: 48px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.subtitulo .tarjetas {
+.subtitulo  {
     font-size: 28px;
-    color: grey;
+    color: red;
+}
+
+.tarjetas{
     display: flex;
     gap: 10px;
 }
@@ -35,16 +39,20 @@
 .tarjeta-de-monstruos {
     width: 180px;
     height: 100px;
-    background: transparent;
+    background:transparent;
     padding: 10px;
     box-sizing: border-box;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 40px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tarjeta-de-monstruos img{
-width: 80px;
+width: 74px;
+height: 84px;
+border-radius: 10px;
 }
 
 input {
