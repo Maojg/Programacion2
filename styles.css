@@ -27,8 +27,9 @@
 }
 
 .subtitulo  {
-    font-size: 28px;
-    color: red;
+    font-size: 36px;
+    color: midnightblue;
+    font-variant: small-caps;
 }
 
 .tarjetas{
@@ -37,24 +38,69 @@
 }
 
 .tarjeta-de-monstruos {
-    width: 180px;
-    height: 100px;
-    background:transparent;
+    width: 230px;
+    height: 180px;
+    background: linear-gradient(45deg, black, transparent);
     padding: 10px;
-    box-sizing: border-box;
+    box-sizing: content-box;
     margin: 10px;
-    border-radius: 40px;
+    border-radius: 41px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
 .tarjeta-de-monstruos img{
-width: 74px;
-height: 84px;
-border-radius: 10px;
+    width: 100px;
+    height: 134px;
+    border-radius: 32px;
+}
+
+#boton-monstruo{
+    width: auto;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(36deg, white, transparent);
+    font-variant: small-caps;
+    margin-top: 30px;
+    border-color: transparent;
 }
 
 input {
     display: none;
 }
+
+#seleccionar-ataque{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#mensajes {
+    width: 280px;
+    background:linear-gradient(36deg, white, transparent);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+.boton-ataque{
+    background: linear-gradient(36deg, white, transparent);
+    width: auto;
+    padding: 10px;
+    box-sizing: content-box;
+    border-radius: 41px;
+    border-color: transparent;
+    font-variant: small-caps;
+}
+.ataques {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    color: white;
+  }
+  
+  #vidas-jugador, #vidas-enemigo {
+    font-size: 32px;
+    margin-bottom: 0;
+  }

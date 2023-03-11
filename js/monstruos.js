@@ -27,7 +27,7 @@ function seleccionarMonstruoJugador() {
     sectionSeleccionarMounstruo = document.getElementById('seleccionar-monstruo')
     sectionSeleccionarMounstruo.style.display='none'
     sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-    sectionSeleccionarAtaque.style.display='block'
+    sectionSeleccionarAtaque.style.display='flex'
     let inputLeviathan = document.getElementById('leviathan')
     let inputPeligarroso = document.getElementById('peligarroso')
     let inputPhairus = document.getElementById('phairus')

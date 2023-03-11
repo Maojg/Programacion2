@@ -4,57 +4,63 @@
 <head>
     <meta charset="utf-8" />
     <title>Monstruos</title>
+    <script src="./js/Monstruos.js"></script>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body class="body">
-
-
     <section id="seleccionar-monstruo">
         <h1 class="titulo">Monstruos</h1>
-
         <h2 class="subtitulo">Elige tu monstruo:</h2>
-
         <div class="tarjetas">
             <label class="tarjeta-de-monstruos" for="leviathan">
                 <p>Leviathan</p>
-                <img src="./gift/Leviathan.gif"  alt="leviathan">
+                <img src="./gift/Leviathan.gif" alt="leviathan">
             </label>
-            <input type="radio" name="monstruo" id="leviathan"/>
+            <input type="radio" name="monstruo" id="leviathan" />
 
             <label class="tarjeta-de-monstruos" for="peligarroso">
                 <p>Peligarroso</p>
-                <img src="./gift/tierra.gif "  alt="peligarroso">
+                <img src="./gift/tierra.gif " alt="peligarroso">
             </label>
-            <input type="radio" name="monstruo" id="peligarroso"/>
+            <input type="radio" name="monstruo" id="peligarroso" />
 
             <label class="tarjeta-de-monstruos" for="phairus">
                 <p>Phairus</p>
-                <img src="./gift/Fuego.gif" alt="phairus" >
+                <img src="./gift/Fuego.gif" alt="phairus">
             </label>
-            <input type="radio" name="monstruo" id="phairus"/>
+            <input type="radio" name="monstruo" id="phairus" />
         </div>
 
         <button id="boton-monstruo">seleccionar</button>
     </section>
     <section id="seleccionar-ataque">
         <h1 class="titulo">Monstruos</h1>
-
-        <h2>Elige tu ataque:</h2>
-        <p>Tu Monstruo <span id="monstruo-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
-        <p>El Monstruo <span id="monstruo-enemigo"></span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
-        <p>
-            <button id="boton-fuego">Fuego 🔥🔥</button>
-            <button id="boton-agua">Agua 💦💦</button>
-            <button id="boton-tierra">Tierra 🪨🪨</button>
-        </p>
+        <h2 class="subtitulo">Elige tu ataque:</h2>
+        <div>
+            <button id="boton-fuego" class="boton-ataque">Fuego 🔥🔥</button>
+            <button id="boton-agua" class="boton-ataque">Agua 💦💦</button>
+            <button id="boton-tierra" class="boton-ataque">Tierra 🪨🪨</button>
+        </div>
+        <div id="mensajes">
+            <p id="resultado">Mucha Suerte</p>
+            <section id="Reiniciar">
+                <button id="boton-reiniciar">Reiniciar</button>
+            </section>
+        </div>
+        <div class="ataques">
+            <div>
+                <p id="vidas-jugador">3</p>
+                <p id="monstruo-jugador"></p>
+                <div id="ataques-del-jugador"></div>
+            </div>
+            <div>
+                <p id="vidas-enemigo">3</p>
+                <p id="monstruo-enemigo"></p>
+                <div id ="ataques-del-enemigo"></div>
+            </div>
+         </div>
     </section>
-    <section id="mensajes"></section>
-
-    <section id="Reiniciar">
-        <button id="boton-reiniciar">Reiniciar</button>
-    </section>
-    <script src="./js/Monstruos.js"></script>
-    <link rel="stylesheet" href="./styles.css">
 </body>
 
 </html>
