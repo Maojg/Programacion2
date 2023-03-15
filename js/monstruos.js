@@ -1,60 +1,168 @@
+const sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+const sectionReiniciar = document.getElementById('reiniciar')
+// sectionReiniciar.style.display = 'none'
+const botonMonstruoJugador = document.getElementById('boton-monstruo')
+const botonFuego = document.getElementById('boton-fuego')
+const botonAgua = document.getElementById('boton-agua')
+const botonTierra = document.getElementById('boton-tierra')
+const botonReiniciar = document.getElementById('boton-reiniciar')
+
+const sectionSeleccionarMonstruo = document.getElementById('seleccionar-monstruo')
+
+const spanMonstruosJugador = document.getElementById('monstruo-jugador')
+const spanMonstruosEnemigo = document.getElementById('monstruo-enemigo')
+const spanVidasJugador = document.getElementById('vidas-jugador')
+const spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
+const sectionMensajes = document.getElementById('resultado')
+const ataquesDelJugador = document.getElementById('ataques-del-jugador')
+const ataqueDelEnemigo = document.getElementById('ataques-del-enemigo')
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
+
+let monstruos = []
 let ataqueJugador
 let ataqueEnemigo
+let opcionDeMonstruos
+let inputLeviathan
+let inputPeligarroso
+let inputPhairus
+let monstruoJugador
 let vidasJugador = 3
 let vidasEnemigo = 3
 
+class monstruo {
+    constructor(nombre, foto, vida) {
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+        this.ataques = []
+    }
+}
+
+let leviathan = new monstruo('Leviathan', './gift/Leviathan.gif', 3)
+let peligarroso = new monstruo('Peligarroso', './gift/tierra.gif', 3)
+let phairus = new monstruo('Phairus', './gift/fuego.gif', 3)
+
+leviathan.ataques.push({
+    nombre: '💦',
+    id: 'boton-agua'
+}, {
+    nombre: '💦',
+    id: 'boton-agua'
+}, {
+    nombre: '💦',
+    id: 'boton-agua'
+}, {
+    nombre: '🔥',
+    id: 'boton-fuego'
+}, {
+    nombre: '🪨🪨',
+    id: 'boton-tierra'
+}, )
+
+peligarroso.ataques.push({
+    nombre: '🪨🪨',
+    id: 'boton-agua'
+}, {
+    nombre: '🪨🪨',
+    id: 'boton-agua'
+}, {
+    nombre: '🪨🪨',
+    id: 'boton-agua'
+}, {
+    nombre: '💦',
+    id: 'boton-agua'
+}, {
+    nombre: '🔥',
+    id: 'boton-fuego'
+}, )
+
+phairus.ataques.push({
+    nombre: '🔥',
+    id: 'boton-agua'
+}, {
+    nombre: '🔥',
+    id: 'boton-agua'
+}, {
+    nombre: '🔥',
+    id: 'boton-agua'
+}, {
+    nombre: '💦',
+    id: 'boton-fuego'
+}, {
+    nombre: '🪨🪨',
+    id: 'boton-tierra'
+}, )
+
+monstruos.push(leviathan, peligarroso, phairus)
+
 function iniciarJuego() {
-    sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-    sectionSeleccionarAtaque.style.display='none'
+    sectionSeleccionarAtaque.style.display = 'none'
 
-    sectionReiniciar = document.getElementById('Reiniciar')
-    sectionReiniciar.style.display='none'
+    monstruos.forEach((monstruo) => {
+        opcionDeMonstruos = `
+        <input type="radio" name="monstruo" id=${monstruo.nombre} />
+        <label class="tarjeta-de-monstruos" for=${monstruo.nombre}>
+            <p>${monstruo.nombre}</p>
+            <img src=${monstruo.foto} alt=${monstruo.nombre}>
+        </label>
+        `
+        contenedorTarjetas.innerHTML += opcionDeMonstruos
 
-    let botonMonstruoJugador = document.getElementById('boton-monstruo')
+        inputLeviathan = document.getElementById('Leviathan')
+        inputPeligarroso = document.getElementById('Peligarroso')
+        inputPhairus = document.getElementById('Phairus')
+    })
+
     botonMonstruoJugador.addEventListener('click', seleccionarMonstruoJugador)
-    let botonFuego = document.getElementById('boton-fuego')
+
     botonFuego.addEventListener('click', ataqueFuego)
-    let botonAgua = document.getElementById('boton-agua')
+
     botonAgua.addEventListener('click', ataqueAgua)
-    let botonTierra = document.getElementById('boton-tierra')
+
     botonTierra.addEventListener('click', ataqueTierra)
 
-    let botonReiniciar = document.getElementById('boton-reiniciar')
-    botonReiniciar.addEventListener('click',reinicarJuego)
+    botonReiniciar.addEventListener('click', reiniciarJuego)
 }
 
 function seleccionarMonstruoJugador() {
-    sectionSeleccionarMounstruo = document.getElementById('seleccionar-monstruo')
-    sectionSeleccionarMounstruo.style.display='none'
-    sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-    sectionSeleccionarAtaque.style.display='flex'
-    let inputLeviathan = document.getElementById('leviathan')
-    let inputPeligarroso = document.getElementById('peligarroso')
-    let inputPhairus = document.getElementById('phairus')
-    let spamMonstruoJugador = document.getElementById('monstruo-jugador')
+    sectionSeleccionarMonstruo.style.display = 'none'
+
+    sectionSeleccionarAtaque.style.display = 'flex'
+
     if (inputLeviathan.checked) {
-        spamMonstruoJugador.innerHTML = 'Leviathan'
+        spanMonstruosJugador.innerHTML = inputLeviathan.id
+            mascotaJugador = inputLeviathan.id
     } else if (inputPeligarroso.checked) {
-        spamMonstruoJugador.innerHTML = 'Peligarroso'
+        spanMonstruosJugador.innerHTML =  inputPeligarroso.id
+            mascotaJugador = inputPeligarroso.id
     } else if (inputPhairus.checked) {
-        spamMonstruoJugador.innerHTML = 'Phairus'
+        spanMonstruosJugador.innerHTML = inputPhairus.id
+            monstruoJugador = inputPhairus.id
     } else {
         alert('Selecciona un Monstruo')
     }
+
+    extraerAtaques(monstruoJugador)
     seleccionarMonstruoEnemigo()
 }
 
-function seleccionarMonstruoEnemigo() {
-    let monstruoAleatorio = aleatorio(1, 3)
-    let spaMonstruoEnemigo = document.getElementById('monstruo-enemigo')
-    if (monstruoAleatorio == 1) {
-        spaMonstruoEnemigo.innerHTML = 'leviathan'
-    } else if (monstruoAleatorio == 2) {
-        spaMonstruoEnemigo.innerHTML = 'Peligarroso'
-    } else {
-        spaMonstruoEnemigo.innerHTML = 'Phairus'
+function extraerAtaques(mascotaJugador){
+    let ataques
+    for (let i = 0; i < monstruos.length; i++) {
+       if (monstruoJugador ==  monstruos[i].nombre){
+        ataques = monstruos[i].ataques
+       }
     }
+    console.log(ataques)
 }
+
+function seleccionarMonstruoEnemigo() {
+    let monstruoAleatorio = aleatorio(0,monstruos.length -1)
+
+    spanMonstruosEnemigo.innerHTML= monstruos[monstruoAleatorio].nombre
+    }
+
 
 function ataqueFuego() {
     ataqueJugador = 'Fuego'
@@ -84,8 +192,7 @@ function ataqueAleatorioEnemigo() {
 }
 
 function combate() {
-    let spanVidasJugador = document.getElementById('vidas-jugador')
-    let spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
     if (ataqueEnemigo == ataqueJugador) {
         crearMensaje("EMPATE")
     } else if (ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA') {
@@ -117,36 +224,32 @@ function revisarVidas() {
 }
 
 function crearMensaje(resultado) {
-    let sectionMensajes = document.getElementById('mensajes')
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'tu Monstruo ataco con' + ataqueJugador + ', el monstruo del enemigo ataco con ' + ataqueEnemigo + ' ' + resultado
-    sectionMensajes.appendChild(parrafo)
+
+
+    let nuevoAtaquesDelJugador = document.createElement('p')
+    let nuevoAtaquesDelEnemigo = document.createElement('p')
+
+    sectionMensajes.innerHTML = resultado
+    nuevoAtaquesDelJugador.innerHTML = ataqueJugador
+    nuevoAtaquesDelEnemigo.innerHTML = ataqueEnemigo
+
+    ataquesDelJugador.appendChild(nuevoAtaquesDelJugador)
+    ataqueDelEnemigo.appendChild(nuevoAtaquesDelEnemigo)
 }
 
 function crearMensajeFinal(resultadoFinal) {
-    let sectionMensajes = document.getElementById('mensajes')
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = resultadoFinal
-    sectionMensajes.appendChild(parrafo)
-
-    let botonFuego = document.getElementById('boton-fuego')
+    sectionMensajes.innerHTML = resultadoFinal
     botonFuego.disabled = true
-    let botonAgua = document.getElementById('boton-agua')
     botonAgua.disabled = true
-    let botonTierra = document.getElementById('boton-tierra')
     botonTierra.disabled = true
+    sectionReiniciar.style.display = 'block'
+}
 
-    sectionReiniciar = document.getElementById('Reiniciar')
-    sectionReiniciar.style.display='Block'
-
+function reiniciarJuego() {
+    location.reload()
 }
 
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
-function reinicarJuego(){
-    location.reload()
-
-}
-
 window.addEventListener('load', iniciarJuego)

@@ -4,7 +4,7 @@
 .body {
     font-family: 'Nanum Gothic Coding', monospace;
     font-family: 'Poppins', sans-serif;
-    
+
     background-image: url("https://images4.alphacoders.com/115/1153100.jpg");
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -26,13 +26,14 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.subtitulo  {
+.subtitulo {
     font-size: 36px;
     color: midnightblue;
     font-variant: small-caps;
 }
 
-.tarjetas{
+.tarjetas,
+.tar-ataques {
     display: flex;
     gap: 10px;
 }
@@ -50,13 +51,13 @@
     align-items: center;
 }
 
-.tarjeta-de-monstruos img{
-    width: 100px;
-    height: 134px;
+.tarjeta-de-monstruos img {
+    width: 230px;
+    height: 180px;
     border-radius: 32px;
 }
 
-#boton-monstruo{
+#boton-monstruo {
     width: auto;
     height: 40px;
     border-radius: 10px;
@@ -70,22 +71,29 @@ input {
     display: none;
 }
 
-#seleccionar-ataque{
+input:checked + label{
+    background: linear-gradient(36deg, white, transparent);
+    width: 240px;
+}
+
+#seleccionar-ataque {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 #mensajes {
     width: 280px;
-    background:linear-gradient(36deg, white, transparent);
+    background: linear-gradient(36deg, white, transparent);
     padding: 20px;
     margin-top: 20px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
-  }
-.boton-ataque{
+}
+
+#boton-reiniciar {
     background: linear-gradient(36deg, white, transparent);
     width: auto;
     padding: 10px;
@@ -94,13 +102,40 @@ input {
     border-color: transparent;
     font-variant: small-caps;
 }
+
+.boton-de-ataque {
+    background: linear-gradient(36deg, white, transparent);
+    width: auto;
+    padding: 10px;
+    box-sizing: content-box;
+    border-radius: 41px;
+    border-color: transparent;
+    font-variant: small-caps;
+}
+
 .ataques {
     display: grid;
     grid-template-columns: 100px 100px;
     color: white;
-  }
-  
-  #vidas-jugador, #vidas-enemigo {
+}
+
+#vidas-jugador,
+#vidas-enemigo {
     font-size: 32px;
     margin-bottom: 0;
-  }
+}
+
+.ataques-jugador,
+ataques-enemigo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 360px) {
+
+    .tarjetas,
+    .tarjetas-ataques {
+        flex-direction: column;
+    }
+}
